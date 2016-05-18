@@ -1,9 +1,16 @@
-//
-//  Calculator.swift
-//  Calculator
-//
-//  Created by Marino Meneghel on 5/18/16.
-//  Copyright © 2016 Marino Meneghel. All rights reserved.
-//
-
 import Foundation
+
+class Calculator {
+    
+    func setOperand(operand: Double) {
+        
+    }
+    
+    func performOperation(operation: String) {
+        
+    }
+    
+    func result() -> Double {
+        return 0.0
+    }
+}
