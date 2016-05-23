@@ -22,7 +22,13 @@ class Calculator {
     }
     
     let operations: Dictionary<String, Operation> = [
-        "℮": .Constant(M_E)
+        "℮" : Operation.Constant(M_E),
+        "√" : Operation.UnaryOperation(sqrt),
+        "+" : Operation.BinaryOperation({$0 + $1}),
+        "−" : Operation.BinaryOperation({$0 - $1}),
+        "×" : Operation.BinaryOperation({$0 * $1}),
+        "÷" : Operation.BinaryOperation({$0 / $1}),
+        "=" : Operation.Equals
     ]
     
     
