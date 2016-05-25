@@ -13,7 +13,8 @@ class ViewController: UIViewController {
             let currentText = display.text
             display.text = currentText! + digit
         } else {
-            display.text = digit
+            let textToDisplay = "." == digit ? "0." : digit
+            display.text = textToDisplay
         }
         isTyping = true
     }
