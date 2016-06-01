@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     private var isTyping = false
     
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var typedHistory: UILabel!
 
     @IBAction func buttonClicked(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
             let textToDisplay = "." == digit ? "0." : digit
             display.text = textToDisplay
         }
+        appendToHistory(sender.currentTitle!)
         isTyping = true
     }
     
@@ -27,7 +29,17 @@ class ViewController: UIViewController {
         if let operation = sender.currentTitle {
             calculator.performOperation(operation)
             displayValue = calculator.result
+            
+            appendToHistory(operation)
         }
+    }
+    @IBAction func clearClicked(sender: UIButton) {
+        typedHistory.text = " "
+    }
+    
+    private func appendToHistory(value: String) {
+        let currentHistory = typedHistory.text
+        typedHistory.text = currentHistory! + value
     }
     
     private var displayValue: Double {
